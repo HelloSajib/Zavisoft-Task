@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_task/config/routes/route_error_page.dart';
+import 'package:flutter_task/features/home/home_routes.dart';
+import 'package:flutter_task/features/home/presentation/pages/home_page.dart';
 import 'package:go_router/go_router.dart';
 
 // Global navigator key to access the navigator state from anywhere in the app.
@@ -17,7 +19,7 @@ class AppRouter {
     // The navigator key is used to access the navigator state.
     navigatorKey: navigatorKey,
     // The initial route to be displayed when the app starts.
-    //initialLocation: SignInPage.path,
+    initialLocation: HomePage.path,
     debugLogDiagnostics: true,
     // The builder for the error page that is displayed when a route is not found.
     errorBuilder: (context,state)=> ErrorPage(state: state),
@@ -29,7 +31,7 @@ class AppRouter {
     routes: [
 
       /// Splash Routes
-      //...SplashRouter.routes,
+      ...HomeRouter.routes,
 
     ]
   );
