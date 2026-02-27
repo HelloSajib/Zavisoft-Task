@@ -51,11 +51,12 @@ class NetworkImageWidget extends StatelessWidget {
 
           // Error fallback
           errorBuilder: (context, error, stackTrace) {
-            return Image.asset(
-              "assets/images/placeholder.png",
+            return Container(
               width: width ?? 100.w,
               height: height ?? 120.w,
-              fit: BoxFit.cover,
+              color: AppColors.greyLight,
+              alignment: Alignment.center,
+              child: const Icon(Icons.image, color: Colors.grey),
             );
           },
         ),

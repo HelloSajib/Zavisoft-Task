@@ -58,7 +58,7 @@ class _ProductTabViewState extends State<ProductTabView> with AutomaticKeepAlive
               if(state.products.isNotNullAndNotEmpty){
 
                 return CustomScrollView(
-                  //key: PageStorageKey<String>("scroll_${widget.tabId}"),
+                  key: PageStorageKey<String>(widget.category),
                   physics: const AlwaysScrollableScrollPhysics(),
                   slivers: [
                     SliverGrid(

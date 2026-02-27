@@ -18,7 +18,7 @@ class HomePage extends HookWidget {
   Widget build(BuildContext context) {
 
     final tabController = useTabController(initialLength: 3);
-    const categories = ["all", "Fashion", "Electronics"];
+    const categories = ["All", "Fashion", "Electronics"];
 
     return Scaffold(
       backgroundColor: AppColors.background,
