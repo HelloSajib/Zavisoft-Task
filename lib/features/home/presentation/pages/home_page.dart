@@ -1,9 +1,10 @@
+import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_task/core/utils/styles/app_colors.dart';
-import 'package:flutter_task/core/utils/ui_helpers/paddings.dart';
 import 'package:flutter_task/features/home/presentation/widgets/sections/carousel_section.dart';
+import 'package:flutter_task/features/home/presentation/widgets/tab_views/product_tab_view.dart';
 import 'package:flutter_task/widgets/app_bar/primary_app_bar.dart';
 
 class HomePage extends HookWidget {
@@ -16,6 +17,8 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
 
+    final tabController = useTabController(initialLength: 3);
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -26,15 +29,39 @@ class HomePage extends HookWidget {
             children: [
               PrimaryAppBar(),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      CarouselSection(),
-                      Padding(
-                        padding: paddingLeft16,
-                        child: Column(
-                          children: [
+                child: ExtendedNestedScrollView(
+                  onlyOneScrollInBody: true,
+                  headerSliverBuilder: (context, innerBoxIsScrolled){
+                    return [
+                      SliverToBoxAdapter(
+                        child: CarouselSection(),
+                      ),
 
+                    ];
+                  },
+                  body: Column(
+                    children: [
+                      TabBar(
+                        controller: tabController,
+                        labelColor: Colors.blue,
+                        indicatorColor: Colors.blue,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        indicatorWeight: 2.0,
+                        unselectedLabelColor: Colors.grey,
+                        tabs: const <Tab>[
+                          Tab(text: "All"),
+                          Tab(text: "Electronics"),
+                          Tab(text: "Fashion"),
+                        ],
+                      ),
+
+                      Expanded(
+                        child: TabBarView(
+                          controller: tabController,
+                          children: const [
+                            ProductTabView(),
+                            ProductTabView(),
+                            ProductTabView()
                           ],
                         ),
                       ),
@@ -49,3 +76,6 @@ class HomePage extends HookWidget {
     );
   }
 }
+
+
+
