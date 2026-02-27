@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_task/core/utils/extensions/null_empty_extension.dart';
 import 'package:flutter_task/core/utils/extensions/status_extension.dart';
+import 'package:flutter_task/core/utils/styles/app_colors.dart';
 import 'package:flutter_task/core/utils/ui_helpers/paddings.dart';
 import 'package:flutter_task/features/home/presentation/bloc/home_bloc.dart';
 import 'package:flutter_task/features/home/presentation/bloc/home_event.dart';
@@ -43,9 +44,8 @@ class _ProductTabViewState extends State<ProductTabView> with AutomaticKeepAlive
     }, []);
 
     return RefreshIndicator(
-      onRefresh: () async {},
-      color: Colors.orange.shade700,
-      backgroundColor: Colors.white,
+      onRefresh: () async => getProducts(),
+      color: AppColors.primary,
       child: Padding(
         padding: padding12,
         child: BlocBuilder<HomeBloc, HomeState>(
