@@ -7,17 +7,10 @@ class ApiUrls {
   /// Staging Base Url
   //static const String _baseURL = "http://192.168.20.244:9090";
   /// Production Base Url
-  static const String _baseURL = "https://dummyjson.com";
+  static const String _baseURL = "https://fakestoreapi.com";
 
-
-  /// Vpn Servers Endpoints
-  static const String servers = "https://www.vpngate.net/api/iphone";
-
-  /// Network Info Endpoints
-  static const String networkInfo = "http://ip-api.com/json";
-
-  /// Speed Test Endpoints
-  static const String ping = "https://www.google.com/generate_204";
+  /// Products Endpoints
+  static const String products = "/products";
 
 
   // Public getter to access the base URL
