@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/config/service_locator/service_locator.dart';
 import 'package:flutter_task/core/utils/enums/enums.dart';
-import 'package:flutter_task/features/domain/entities/product_entity.dart';
-import 'package:flutter_task/features/domain/usecases/get_products_usecase.dart';
+import 'package:flutter_task/features/home/domain/entities/product_entity.dart';
+import 'package:flutter_task/features/home/domain/usecases/get_products_usecase.dart';
 import 'package:flutter_task/features/home/presentation/bloc/home_event.dart';
 
 

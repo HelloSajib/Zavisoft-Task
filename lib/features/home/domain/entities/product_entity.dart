@@ -1,4 +1,4 @@
-import 'package:flutter_task/features/data/models/product_model.dart';
+import 'package:flutter_task/features/home/data/models/product_model.dart';
 
 class ProductEntity {
   final int? id;

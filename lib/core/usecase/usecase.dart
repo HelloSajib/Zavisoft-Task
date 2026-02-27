@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_task/core/error/failure.dart';
-import 'package:flutter_task/core/error/failure.dart';
 
 /// An abstract class representing a use case, which enforces a standard
 /// contract for executing a piece of business logic.

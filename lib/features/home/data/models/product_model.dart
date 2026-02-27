@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_task/features/domain/entities/product_entity.dart';
+import 'package:flutter_task/features/home/domain/entities/product_entity.dart';
 
 class ProductModel {
   final int? id;
