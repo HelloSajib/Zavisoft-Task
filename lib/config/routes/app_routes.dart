@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_task/config/routes/route_error_page.dart';
+import 'package:flutter_task/features/auth/auth_routes.dart';
+import 'package:flutter_task/features/auth/presentation/pages/sign_in_page.dart';
 import 'package:flutter_task/features/home/home_routes.dart';
 import 'package:flutter_task/features/home/presentation/pages/home_page.dart';
 import 'package:go_router/go_router.dart';
@@ -16,21 +18,19 @@ class AppRouter {
 
   /// The main GoRouter instance for the application.
   static final GoRouter routes = GoRouter(
-    // The navigator key is used to access the navigator state.
     navigatorKey: navigatorKey,
-    // The initial route to be displayed when the app starts.
-    initialLocation: HomePage.path,
+    initialLocation: SignInPage.path,
     debugLogDiagnostics: true,
-    // The builder for the error page that is displayed when a route is not found.
     errorBuilder: (context,state)=> ErrorPage(state: state),
-    // A redirect function that can be used to redirect users based on application state.
     redirect: (BuildContext context, GoRouterState state){
       return null;
     },
-    // The list of top-level routes in the application.
     routes: [
 
-      /// Splash Routes
+      /// Auth Routes
+      ...AuthRouter.routes,
+
+      /// Home Routes
       ...HomeRouter.routes,
 
     ]

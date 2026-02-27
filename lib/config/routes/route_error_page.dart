@@ -7,10 +7,8 @@ import 'package:flutter_task/core/utils/ui_helpers/ui_helpers.dart';
 
 /// A page displayed when a route is not found or an error occurs during navigation.
 class ErrorPage extends StatelessWidget {
-  /// The state of the router at the time of the error, containing error details.
   final GoRouterState? state;
 
-  /// Creates an [ErrorPage].
   const ErrorPage({super.key, this.state});
 
   @override
@@ -83,13 +81,14 @@ class ErrorPage extends StatelessWidget {
                   gap28,
                   // A button to navigate the user back to the home page.
                   SizedBox(
-                    width: 160.w,
+                    width: 200.w,
                     height: 48.h,
                     child: ElevatedButton.icon(
                       onPressed: () => context.go('/'),
                       icon: const Icon(Icons.home, color: Colors.white),
                       label: const Text("Back to Home",style: TextStyle(color: Colors.white),),
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                     ),
