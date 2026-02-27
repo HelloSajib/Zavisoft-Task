@@ -7,14 +7,16 @@ class AppTextStyles {
 
   const AppTextStyles._();
 
-  static TextStyle subtitle = GoogleFonts.poppins(
-    fontSize: 18.sp,
+
+  static TextStyle primary = GoogleFonts.poppins(
+    fontSize: 13.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
-  static TextStyle primary = GoogleFonts.poppins(
-    fontSize: 13.sp,
+
+  static TextStyle subtitle = GoogleFonts.poppins(
+    fontSize: 18.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
