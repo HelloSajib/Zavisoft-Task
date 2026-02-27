@@ -21,9 +21,12 @@ class ZavisoftApp extends StatelessWidget {
       // A wrapper to enable toast notifications throughout the app.
       child: ToastificationWrapper(
         // Provides all BLoCs and Cubits to the entire widget tree.
-        child: MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.routes,
+        child: MultiBlocProvider(
+          providers: AppBlocProviders.providers,
+          child: MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.routes,
+          ),
         ),
       ),
     );

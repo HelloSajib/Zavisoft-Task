@@ -18,6 +18,7 @@ class HomePage extends HookWidget {
   Widget build(BuildContext context) {
 
     final tabController = useTabController(initialLength: 3);
+    const categories = ["all", "Fashion", "Electronics"];
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -36,36 +37,29 @@ class HomePage extends HookWidget {
                       SliverToBoxAdapter(
                         child: CarouselSection(),
                       ),
-
+                      SliverPersistentHeader(
+                          pinned: true,
+                          delegate: _TabBarDelegate(
+                            TabBar(
+                              controller: tabController,
+                              labelColor: Colors.blue,
+                              indicatorColor: Colors.blue,
+                              indicatorSize: TabBarIndicatorSize.label,
+                              indicatorWeight: 2.0,
+                              unselectedLabelColor: Colors.grey,
+                              tabs: categories.map((category) {
+                                return Tab(text: category);
+                              }).toList(),
+                            ),
+                          )
+                      )
                     ];
                   },
-                  body: Column(
-                    children: [
-                      TabBar(
-                        controller: tabController,
-                        labelColor: Colors.blue,
-                        indicatorColor: Colors.blue,
-                        indicatorSize: TabBarIndicatorSize.label,
-                        indicatorWeight: 2.0,
-                        unselectedLabelColor: Colors.grey,
-                        tabs: const <Tab>[
-                          Tab(text: "All"),
-                          Tab(text: "Electronics"),
-                          Tab(text: "Fashion"),
-                        ],
-                      ),
-
-                      Expanded(
-                        child: TabBarView(
-                          controller: tabController,
-                          children: const [
-                            ProductTabView(),
-                            ProductTabView(),
-                            ProductTabView()
-                          ],
-                        ),
-                      ),
-                    ],
+                  body: TabBarView(
+                    controller: tabController,
+                    children: categories.map((category){
+                      return ProductTabView(category: category);
+                    }).toList(),
                   ),
                 ),
               ),
@@ -78,4 +72,31 @@ class HomePage extends HookWidget {
 }
 
 
+class _TabBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar tabBar;
 
+  _TabBarDelegate(this.tabBar);
+
+  @override
+  double get minExtent => tabBar.preferredSize.height;
+
+  @override
+  double get maxExtent => tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return Material(
+      color: Colors.white,
+      elevation: overlapsContent ? 2 : 0,
+      child: tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(covariant _TabBarDelegate oldDelegate) =>
+      tabBar != oldDelegate.tabBar;
+}
