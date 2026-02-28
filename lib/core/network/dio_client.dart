@@ -159,10 +159,12 @@ class DioClient {
       case DioExceptionType.badResponse:
         // Shows a toast notification for API errors.
         ToastNotifications.showApiErrorToast(
-              e.response?.statusCode ?? 500, e.response?.data["message"]);
+            e.response?.statusCode ?? 500,
+            e.response?.data
+        );
         return ApiFailure(
           e.response?.statusCode ?? 500,
-          "${e.response?.data["message"]}",
+          "${e.response?.data}",
         );
       case DioExceptionType.receiveTimeout:
         return const NetworkFailure("Request timeout, please try again.");

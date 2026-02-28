@@ -3,7 +3,7 @@ part of 'auth_bloc.dart';
 class AuthState extends Equatable{
   final String? message;
   final Status status;
-  final bool? isSignedIn;
+  final bool isSignedIn;
 
   const AuthState({
     required this.message,
@@ -15,7 +15,7 @@ class AuthState extends Equatable{
   factory AuthState.initial() => const AuthState(
     message: null,
     status: Status.initial,
-    isSignedIn: null
+    isSignedIn: false
   );
 
   /// Creates a copy of the current state with updated values.

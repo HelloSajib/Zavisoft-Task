@@ -18,10 +18,10 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource{
   Future<Either<Failure, bool>> signIn({required Map<String, dynamic> body}) async {
     try{
       Response response = await sl<DioClient>().post(
-          ApiUrls.products,
+          ApiUrls.signIn,
           data: body
       );
-      return Right(response.statusCode == 200);
+      return Right(response.statusCode == 200 || response.statusCode == 201);
     }catch(error, stackTrace){
       log(
           "Auth Remote DataSource: ",

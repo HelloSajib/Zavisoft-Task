@@ -16,7 +16,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState>{
   Future<void> _onSignIn(SignIn event, Emitter<AuthState> emit) async {
     emit(state.copyWith(status: Status.loading));
     final Map<String, dynamic> params = {
-      "email": event.userName,
+      "username": event.username,
       "password": event.password
     };
     var result = await sl<SignInUseCase>().call(params: params);

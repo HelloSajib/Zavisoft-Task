@@ -29,7 +29,6 @@ class SignInPage extends StatelessWidget {
                 SignInHeaderSection(),
                 gap24,
                 SignInFormSection(),
-                gap12,
               ],
             ),
           ),

@@ -9,6 +9,9 @@ class ApiUrls {
   /// Production Base Url
   static const String _baseURL = "https://fakestoreapi.com";
 
+  /// Auth Endpoints
+  static const String signIn = "/auth/login";
+
   /// Products Endpoints
   static const String products = "/products";
 
